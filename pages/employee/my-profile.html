@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - PBAS</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body class="employee-dashboard">
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="../../assets/images/logo.png" alt="PBAS Logo">
+                <h1>PBAS</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="attendance.html">Mark Attendance</a></li>
+                <li><a href="attendance-history.html">History</a></li>
+                <li><a href="my-profile.html" class="active">Profile</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="employee-dashboard-main">
+        <div class="container">
+            <section class="profile-section">
+                <h2>My Profile</h2>
+
+                <!-- Tabs -->
+                <div class="profile-tabs">
+                    <button class="tab-btn active" onclick="switchProfileTab('info')">Personal Information</button>
+                    <button class="tab-btn" onclick="switchProfileTab('password')">Change Password</button>
+                </div>
+
+                <!-- Personal Information Tab -->
+                <div id="info-tab" class="tab-content active">
+                    <div class="profile-card">
+                        <form id="profile-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-first-name">First Name</label>
+                                    <input type="text" id="profile-first-name" name="first_name" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-last-name">Last Name</label>
+                                    <input type="text" id="profile-last-name" name="last_name" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profile-email">Email</label>
+                                <input type="email" id="profile-email" name="email" readonly>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-phone">Phone</label>
+                                    <input type="tel" id="profile-phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-position">Position</label>
+                                    <input type="text" id="profile-position" name="position" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-department">Department</label>
+                                    <input type="text" id="profile-department" name="department" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-employee-id">Employee ID</label>
+                                    <input type="text" id="profile-employee-id" name="employee_id" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                <button type="button" class="btn btn-secondary" onclick="resetForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Change Password Tab -->
+                <div id="password-tab" class="tab-content">
+                    <div class="profile-card">
+                        <form id="password-form" class="profile-form">
+                            <div class="form-group">
+                                <label for="current-password">Current Password *</label>
+                                <input type="password" id="current-password" name="current_password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new-password">New Password *</label>
+                                <input type="password" id="new-password" name="new_password" required>
+                                <small>Must be at least 8 characters with uppercase, lowercase, numbers, and symbols</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password *</label>
+                                <input type="password" id="confirm-password" name="confirm_password" required>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Change Password</button>
+                                <button type="button" class="btn btn-secondary" onclick="resetPasswordForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Philippine Barangay Attendance System. All rights reserved.</p>
+    </footer>
+
+    <style>
+        .profile-section {
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        .profile-section h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .profile-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #555;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
